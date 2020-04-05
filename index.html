@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <meta http-equiv="Content-Security-Policy">
+        <script type="text/javascript" src="cordova.js"></script>
+        <!-- jQuery -->
+        <link rel="stylesheet" type="text/css" href="js/jquery-1.5.0.mobile.min.css">
+        <script type="text/javascript" src="js/jquery-1.11.1.min.js" id="cordova-jquery"></script>
+        <script type="text/javascript" id="jqm-trans-disable">
+            /* For having a faster transition */
+            $(document).on("mobileinit", function() {
+                            $.mobile.defaultPageTransition = "none";
+                            $.mobile.defaultDialogTransition = "none";
+            });
+        </script>
+        <script type="text/javascript" src="js/jquery-1.5.0.mobile.min.js"></script>        
+        <script type="text/javascript" src="js/index.js"></script>
+        <title>MegaMax Sale</title>
+    </head>
+    <body>
+        <div class="app">
+	   <h1>MegaMax Sale</h1>
+            <div data-role="controlgroup" data-type="horizontal">
+	   <!-- I. User Information -->
+				<fieldset>
+				<label><strong>Salesperson:</strong></label>
+				<input type="text" id="name">
+				<label><strong>Client ID:</strong></label>
+				<input type="text" id="clientId">
+				</fieldset>
+				<button type=button id="nextOrder" onclick="app.MegaMaxSale.createOrder()">Create Order</button>
+	   </div>
+            <div data-role="controlgroup" data-type="horizontal">
+	   <!-- II. Widget navigation buttons -->
+				<button type=button id="prevWidget" onclick="app.MegaMaxSale.prevWidget()">Prev Widget</button>
+				<button type=button id="nextWidget" onclick="app.MegaMaxSale.nextWidget()">Next Widget</button>
+	   </div>
+            <div data-role="controlgroup" data-type="horizontal">
+	   <!-- III. Widget display-->
+				
+				<img style="border: 1px black solid; width: 330px; height: 330px;" id="widgetImg">
+				<h5 id="widgetName">WIDGET NAME</h5>
+				<fieldset>
+					<label><strong>Number:</strong></label>
+					<input type="text" id="number">
+					<label><strong>Agreed price:</strong></label>
+					<input type="text" id="price">
+				</fieldset>
+				
+	   </div>
+            <div data-role="controlgroup" data-type="horizontal">
+	   <!-- IV. Order navigation buttons and display -->
+				<button type=button id="prevOrder" onclick="app.MegaMaxSale.prevOrder()">Prev Order</button>
+				<button type=button id="nextOrder" onclick="app.MegaMaxSale.nextOrder()">Next Order</button>
+				
+				<button type=button id="addToOrder" onclick="app.MegaMaxSale.addToOrder()">Add to Order</button>
+            </div>
+				<div id="orderDetailForm" data-role="controlgroup" data-type="horizontal" style="width:90%;height:50%; border:solid 1px black;">
+					<h2 id="orderNum"></h2>
+					<h4 id="orderClient"></h4>
+					<ul id="orderList">
+					<ul>
+				</div>
+			<div data-role="controlgroup" data-type="horizontal">
+				<button type=button id="newOrder" onclick="app.MegaMaxSale.newOrder()">Place New Order</button>
+				</div>
+				<div id="orderSummary" data-role="controlgroup" data-type="horizontal" style="width:100%;height:50%;">
+					<p id="orderSummaryCustomer"></p>
+					<p id="orderSummaryAddrDate"></p>
+					<ul id="orderSummaryList">
+					</ul>
+				</div>
+				
+			<div>
+	   <!-- V. Map canvas -->
+				<canvas style="width:100%;height:50%; border:solid 1px black;" id="map_canvas">
+				</canvas>
+        </div>
+		</div>
+    </body>
+</html>
